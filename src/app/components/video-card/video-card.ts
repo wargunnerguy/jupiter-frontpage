@@ -10,4 +10,17 @@ import {CommonModule} from '@angular/common';
 })
 export class VideoCardComponent {
   @Input() item: any;
+
+  getImageUrl(): string {
+    const photos = this.item?.verticalPhotos;
+    const photoTypes = photos?.[0]?.photoTypes;
+
+    return (
+      photoTypes?.[80]?.url ||
+      photoTypes?.[60]?.url ||
+      photoTypes?.[17]?.url ||
+      photos?.[0]?.photoUrlOriginal ||
+      ''
+    );
+  }
 }
