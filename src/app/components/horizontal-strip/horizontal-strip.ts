@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { VideoCardComponent } from '../video-card/video-card';
 
 @Component({
   selector: 'app-horizontal-strip',
-  imports: [],
+  standalone: true, //
+  imports: [CommonModule, VideoCardComponent],
   templateUrl: './horizontal-strip.html',
-  styleUrl: './horizontal-strip.scss'
+  styleUrls: ['./horizontal-strip.scss']
 })
-export class HorizontalStrip {
-
+export class HorizontalStripComponent {
+  @Input() title = '';
+  @Input() items: any[] = []; //
 }

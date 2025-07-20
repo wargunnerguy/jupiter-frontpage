@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-video-card',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './video-card.html',
-  styleUrl: './video-card.scss'
+  styleUrls: ['./video-card.scss']
 })
-export class VideoCard {
-
+export class VideoCardComponent {
+  @Input() item: any;
 }

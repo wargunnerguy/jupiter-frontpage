@@ -1,1 +1,9 @@
-<p>horizontal-strip works!</p>
+<div class="mb-4 px-3">
+  <h2 class="h5 mb-3">{{ title }}</h2>
+
+  <div class="scroll-container d-flex gap-3 overflow-auto pb-2">
+    @for (item of items; track item.id) {
+      <app-video-card [item]="item" />
+    }
+  </div>
+</div>

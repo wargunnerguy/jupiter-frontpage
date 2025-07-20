@@ -1,0 +1,14 @@
+.scroll-container {
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 1rem;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  app-video-card {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+}
