@@ -1,5 +1,21 @@
 @if (loading) {
-  <div>Laeb…</div>
+    @for (row of [0, 1, 2]; track row) {
+      <div class="row ps-3">
+      <h2 class="h5">...</h2>
+        @for (col of [0, 1, 2, 3, 4, 5]; track col) {
+          <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="img-wrapper">
+              <ngx-skeleton-loader
+                appearance="square"
+                animation="pulse-dark"
+              ></ngx-skeleton-loader>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+
 } @else {
   <div>
 
@@ -8,6 +24,7 @@
         [title]="strip.header"
         [headerUrl]="strip.headerUrl"
         [items]="strip.data"
+        [loading]="loading"
       ></app-horizontal-strip>
     }
   </div>

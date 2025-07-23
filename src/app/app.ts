@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataService } from './services/data';
 import { HorizontalStripComponent } from './components/horizontal-strip/horizontal-strip';
+import {NgxSkeletonLoaderComponent} from 'ngx-skeleton-loader';
 
 
 @Component({
@@ -9,7 +10,8 @@ import { HorizontalStripComponent } from './components/horizontal-strip/horizont
   standalone: true,
   imports: [
     CommonModule,
-    HorizontalStripComponent
+    HorizontalStripComponent,
+    NgxSkeletonLoaderComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

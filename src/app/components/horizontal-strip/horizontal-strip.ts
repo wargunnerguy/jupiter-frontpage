@@ -11,11 +11,12 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VideoCardComponent } from '../video-card/video-card';
+import {NgxSkeletonLoaderComponent} from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-horizontal-strip',
   standalone: true,
-  imports: [CommonModule, VideoCardComponent],
+  imports: [CommonModule, VideoCardComponent, NgxSkeletonLoaderComponent],
   templateUrl: './horizontal-strip.html',
   styleUrls: ['./horizontal-strip.scss']
 })
@@ -25,6 +26,7 @@ export class HorizontalStripComponent
   @Input() title = '';
   @Input() headerUrl = '';
   @Input() items: any[] = [];
+  @Input() loading = true;
 
   @ViewChild('scrollContainer', { static: true })
   scrollContainer!: ElementRef<HTMLDivElement>;
