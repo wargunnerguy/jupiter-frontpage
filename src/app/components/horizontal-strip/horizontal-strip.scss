@@ -1,44 +1,55 @@
+// horizontal-strip.scss
+
 .strip-wrapper {
   .scroll-container-wrapper {
     position: relative;
 
     .scroll-container {
-      /* hide native scrollbar */
       overflow-x: auto;
-      scrollbar-width: none;       // Firefox
-      -ms-overflow-style: none;    // IE10+
+      scrollbar-width: none;
+      -ms-overflow-style: none;
       &::-webkit-scrollbar {
-        display: none;             // WebKit
+        display: none;
       }
     }
 
     .scroll-btn {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 32px;
-      height: 32px;
-      border: none;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
+      top: 0;
+      bottom: 0;
+      width: 80px;                 // wider hit-area + gradient
       display: flex;
       align-items: center;
       justify-content: center;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 4.5rem;
       cursor: pointer;
       opacity: 0;
       transition: opacity 0.3s;
-      z-index: 1;
+      z-index: 2;
 
       &.left {
-        left: 4px;
+        left: 0;
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.8),
+            transparent
+        );
       }
+
       &.right {
-        right: 4px;
+        right: 0;
+        background-image: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0.8),
+            transparent
+        );
       }
     }
 
-    /* show arrows only on hover or focus */
+    /* only show the overlays & arrows on hover/focus */
     &:hover .scroll-btn,
     .scroll-container:focus-within + .scroll-btn,
     .scroll-btn:hover {
