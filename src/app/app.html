@@ -1,10 +1,10 @@
 @if (loading) {
     @for (row of [0, 1, 2]; track row) {
-      <div class="row ps-3">
-      <h2 class="h5">...</h2>
+      <div class="row p-0 m-0">
+      <h2 class="h5 ps-3">...</h2>
         @for (col of [0, 1, 2, 3, 4, 5]; track col) {
-          <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-            <div class="img-wrapper">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-2 ps-3 pb-3 m-0">
+            <div class="img-wrapper p-0 m-0">
               <ngx-skeleton-loader
                 appearance="square"
                 animation="pulse-dark"
