@@ -1,17 +1,60 @@
 :host {
-  display: block;   /* let the card size to its Bootstrap column */
+  display: block; /* let the card size to its Bootstrap column */
   width: 100%;
 }
 
 .img-wrapper {
-  position: relative;    /* required for `fill` mode */
-  width: 100%;           /* fill the host’s width */
-  aspect-ratio: 2 / 3;   /* lock in your 2:3 ratio */
-  overflow: hidden;      /* crop overflow from the img */
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
 }
 
 .fill-img {
-  object-fit: cover;     /* cover the wrapper without distortion */
-  width: 100%;           /* img must fill the wrapper’s width */
-  height: 100%;          /* and its height, too (fill mode) */
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.video-card {
+  position: relative;
+
+  .fav-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    fill: var(--favourite-icon-color);
+
+    // size the SVG to match your design
+    svg {
+      width: 1rem;
+      height: 1rem;
+      outline-width: 2px;
+    }
+
+    // hide by default
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 0.2s, transform 0.2s;
+    pointer-events: none;
+
+    &.active {
+      // filled heart state: always visible + pop
+      opacity: 1 !important;
+      transform: scale(1.2);
+      pointer-events: auto;
+    }
+  }
+
+  // on *this* card hover: show the empty-heart button at 60%
+  &:hover {
+    .fav-btn:not(.active) {
+      opacity: 0.6;
+      pointer-events: auto;
+    }
+  }
 }

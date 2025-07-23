@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { FavoritesService } from '../../services/favourites';
 
 @Component({
   selector: 'app-video-card',
@@ -13,7 +14,9 @@ export class VideoCardComponent {
   @Input() index = 0;
   @Input() priority = false;
 
-  // Build a srcset from all available verticalPhotos sizes
+  constructor(public favSvc: FavoritesService) {}
+
+  /** Build a srcset from all available verticalPhotos sizes */
   getSrcset(): string {
     const types = this.item.verticalPhotos?.[0]?.photoTypes || {};
     return Object.values(types)
@@ -21,8 +24,13 @@ export class VideoCardComponent {
       .join(', ');
   }
 
+  /** Fallback to the largest photoUrlOriginal if needed */
   getImageUrl(): string {
-    // Fallback to the largest photoUrlOriginal if needed
     return this.item.verticalPhotos?.[0]?.photoUrlOriginal || '';
+  }
+
+  /** Toggle favorite state in localStorage-backed service */
+  onToggleFav() {
+    this.favSvc.toggle(this.item.id);
   }
 }

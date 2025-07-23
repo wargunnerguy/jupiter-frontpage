@@ -1,9 +1,12 @@
 @use "bootstrap" as *;
 
 :root {
-  --header-font-family: Rubik, sans-serif;
+
+  --header-font-family: Arial, sans-serif;
+  --header-font-weight: 2rem;
   --color-text: #ffffff;
   --background-color: #3a5a73;
+  --favourite-icon-color: #fff;
 }
 
 body {
@@ -13,4 +16,6 @@ body {
 
 html, body {
   font-family: var(--header-font-family), serif;
+  font-size: 1.25rem;
 }
+
