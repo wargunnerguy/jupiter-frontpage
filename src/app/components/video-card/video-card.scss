@@ -1,7 +1,16 @@
 :host {
-  display: block; /* let the card size to its Bootstrap column */
+  display: block;
   width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
 }
+
+:host(:hover) {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
 
 .img-wrapper {
   position: relative;
