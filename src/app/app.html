@@ -1,11 +1,12 @@
 @if (loading) {
-  <div>Loading…</div>
+  <div>Laeb…</div>
 } @else {
   <div>
 
-    @for (strip of frontPageStrips; track strip.id) {
+    @for (strip of frontPageStrips; track strip.id; let i = $index) {
       <app-horizontal-strip
-        [title]="strip.title"
+        [title]="strip.header"
+        [headerUrl]="strip.headerUrl"
         [items]="strip.data"
       ></app-horizontal-strip>
     }

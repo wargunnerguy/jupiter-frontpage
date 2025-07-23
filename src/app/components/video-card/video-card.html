@@ -1,14 +1,11 @@
-<div class="card border-0 bg-light h-100" style="width: 160px;">
+<div class="img-wrapper">
   <img
-    [src]="getImageUrl()"
-    [alt]="item.heading || item.title"
-    class="card-img-top rounded"
-    style="aspect-ratio: 2/3; object-fit: cover;"
+    class="fill-img rounded"
+    ngSrc="{{ getImageUrl() }}"
+    [srcset]="getSrcset()"
+    [priority]="priority"
+    decoding="async"
+    alt="{{ item.heading || item.title }}"
+    fill
   />
-  <div class="card-body p-2">
-    <p class="card-text small text-dark mb-0 fw-semibold">
-      {{ item.heading || item.title }}
-    </p>
-
-  </div>
 </div>

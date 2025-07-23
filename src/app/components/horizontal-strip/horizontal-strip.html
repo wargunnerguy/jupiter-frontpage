@@ -1,9 +1,46 @@
-<div class="mb-4 px-3">
-  <h2 class="h5 mb-3">{{ title }}</h2>
+<div class="mb-4 px-3 strip-wrapper">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h2 class="h5 mb-0">{{ title }}</h2>
+    <a *ngIf="headerUrl" [href]="headerUrl" class="text-decoration-none small">
+      Näita kõiki &rarr;
+    </a>
+  </div>
 
-  <div class="scroll-container d-flex gap-3 overflow-auto pb-2">
-    @for (item of items; track item.id) {
-      <app-video-card [item]="item" />
-    }
+  <!-- wrapper to position arrows -->
+  <div class="scroll-container-wrapper">
+    <!-- left arrow -->
+    <button
+      class="scroll-btn left"
+      aria-label="Scroll left"
+      (click)="scrollLeft()"
+    >
+      ‹
+    </button>
+
+    <!-- the actual strip -->
+    <div
+      #scrollContainer
+      class="row flex-nowrap gx-2 overflow-auto scroll-container"
+      tabindex="0"
+      (keydown)="onKeyDown($event)"
+    >
+      @for (item of items; track item.id; let i = $index) {
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 flex-shrink-0">
+          <app-video-card
+            [item]="item"
+            [priority]="false"
+          ></app-video-card>
+        </div>
+      }
+    </div>
+
+    <!-- right arrow -->
+    <button
+      class="scroll-btn right"
+      aria-label="Scroll right"
+      (click)="scrollRight()"
+    >
+      ›
+    </button>
   </div>
 </div>

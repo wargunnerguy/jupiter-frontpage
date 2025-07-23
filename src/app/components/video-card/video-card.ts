@@ -1,26 +1,28 @@
-import {Component, Input} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-video-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './video-card.html',
   styleUrls: ['./video-card.scss']
 })
 export class VideoCardComponent {
-  @Input() item: any;
+  @Input() item!: any;
+  @Input() index = 0;
+  @Input() priority = false;
+
+  // Build a srcset from all available verticalPhotos sizes
+  getSrcset(): string {
+    const types = this.item.verticalPhotos?.[0]?.photoTypes || {};
+    return Object.values(types)
+      .map((t: any) => `${t.url} ${t.w}w`)
+      .join(', ');
+  }
 
   getImageUrl(): string {
-    const photos = this.item?.verticalPhotos;
-    const photoTypes = photos?.[0]?.photoTypes;
-
-    return (
-      photoTypes?.[80]?.url ||
-      photoTypes?.[60]?.url ||
-      photoTypes?.[17]?.url ||
-      photos?.[0]?.photoUrlOriginal ||
-      ''
-    );
+    // Fallback to the largest photoUrlOriginal if needed
+    return this.item.verticalPhotos?.[0]?.photoUrlOriginal || '';
   }
 }

@@ -1,14 +1,48 @@
-.scroll-container {
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: 1rem;
-  scroll-behavior: smooth;
+.strip-wrapper {
+  .scroll-container-wrapper {
+    position: relative;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+    .scroll-container {
+      /* hide native scrollbar */
+      overflow-x: auto;
+      scrollbar-width: none;       // Firefox
+      -ms-overflow-style: none;    // IE10+
+      &::-webkit-scrollbar {
+        display: none;             // WebKit
+      }
+    }
 
-  app-video-card {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
+    .scroll-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 1;
+
+      &.left {
+        left: 4px;
+      }
+      &.right {
+        right: 4px;
+      }
+    }
+
+    /* show arrows only on hover or focus */
+    &:hover .scroll-btn,
+    .scroll-container:focus-within + .scroll-btn,
+    .scroll-btn:hover {
+      opacity: 1;
+    }
   }
 }

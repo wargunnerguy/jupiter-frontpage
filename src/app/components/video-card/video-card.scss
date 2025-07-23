@@ -1,1 +1,17 @@
-/* currently handled via Bootstrap */
+:host {
+  display: block;   /* let the card size to its Bootstrap column */
+  width: 100%;
+}
+
+.img-wrapper {
+  position: relative;    /* required for `fill` mode */
+  width: 100%;           /* fill the host’s width */
+  aspect-ratio: 2 / 3;   /* lock in your 2:3 ratio */
+  overflow: hidden;      /* crop overflow from the img */
+}
+
+.fill-img {
+  object-fit: cover;     /* cover the wrapper without distortion */
+  width: 100%;           /* img must fill the wrapper’s width */
+  height: 100%;          /* and its height, too (fill mode) */
+}
