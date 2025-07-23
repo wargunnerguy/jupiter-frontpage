@@ -1,16 +1,14 @@
 .strip-wrapper {
   .scroll-container-wrapper {
     position: relative;
-    /* define gutter for calculations */
     --gutter: 0.5rem;
 
-    // half-card gradient fades, but only on hover
+    // gradient overlays, default hidden
     &::before,
     &::after {
       content: '';
       position: absolute;
-      top: 0;
-      bottom: 0;
+      top: 0; bottom: 0;
       pointer-events: none;
       z-index: 1;
       opacity: 0;
@@ -22,7 +20,6 @@
       width: calc((100% - var(--gutter)) / 4);
       background: linear-gradient(to right, rgba(0,0,0,0.8), transparent);
     }
-
     &::after {
       right: 0;
       width: calc((100% - var(--gutter)) / 4);
@@ -30,54 +27,51 @@
     }
 
     @media (min-width: 576px) {
-      &::before,
-      &::after {
-        width: calc((100% - (2 * var(--gutter))) / 6);
+      &::before, &::after {
+        width: calc((100% - (2*var(--gutter))) / 6);
       }
     }
     @media (min-width: 768px) {
-      &::before,
-      &::after {
-        width: calc((100% - (3 * var(--gutter))) / 8);
+      &::before, &::after {
+        width: calc((100% - (3*var(--gutter))) / 8);
       }
     }
     @media (min-width: 992px) {
-      &::before,
-      &::after {
-        width: calc((100% - (5 * var(--gutter))) / 12);
+      &::before, &::after {
+        width: calc((100% - (5*var(--gutter))) / 12);
       }
     }
 
-    // show gradients on hover of the wrapper
-    &:hover::before,
-    &:hover::after {
-      opacity: 1;
-    }
+    // show gradients only when there's overflow
+    &.show-left::before  { opacity: 1; }
+    &.show-right::after { opacity: 1; }
 
+    // scroll container
     .scroll-container {
       overflow-x: auto;
       scrollbar-width: none;
       -ms-overflow-style: none;
       &::-webkit-scrollbar { display: none; }
 
-      /* half-card peek */
+      margin-right: 0;
+      margin-left: 0;
+
       padding-right: calc((100% - var(--gutter)) / 4);
-      margin: 0;
       @media (min-width: 576px) {
-        padding-right: calc((100% - (2 * var(--gutter))) / 6);
+        padding-right: calc((100% - (2*var(--gutter))) / 6);
       }
       @media (min-width: 768px) {
-        padding-right: calc((100% - (3 * var(--gutter))) / 8);
+        padding-right: calc((100% - (3*var(--gutter))) / 8);
       }
       @media (min-width: 992px) {
-        padding-right: calc((100% - (5 * var(--gutter))) / 12);
+        padding-right: calc((100% - (5*var(--gutter))) / 12);
       }
     }
 
+    // scroll buttons, default hidden
     .scroll-btn {
       position: absolute;
-      top: 0;
-      bottom: 0;
+      top: 0; bottom: 0;
       width: 80px;
       display: flex;
       align-items: center;
@@ -93,27 +87,17 @@
 
       &.left {
         left: 0;
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.8),
-            transparent
-        );
+        background-image: linear-gradient(to right, rgba(0,0,0,0.8), transparent);
       }
-
       &.right {
         right: 0;
-        background-image: linear-gradient(
-            to left,
-            rgba(0, 0, 0, 0.8),
-            transparent
-        );
+        background-image: linear-gradient(to left, rgba(0,0,0,0.8), transparent);
       }
     }
 
-    /* only show arrows on hover/focus */
-    &:hover .scroll-btn,
-    .scroll-container:focus-within + .scroll-btn,
-    .scroll-btn:hover {
+    // show arrows on hover—but only where they exist
+    &.show-left:hover  .scroll-btn.left,
+    &.show-right:hover .scroll-btn.right {
       opacity: 1;
     }
   }
