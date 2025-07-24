@@ -11,6 +11,7 @@
       alt="{{ item.heading || item.title }}"
       fill
       loading="lazy"
+      (load)="onImgLoad($event)"
     />
   </div>
   </a>

@@ -13,6 +13,7 @@ export class VideoCardComponent {
   @Input() item!: any;
   @Input() index = 0;
   @Input() priority = false;
+  loaded = false;
 
   constructor(public favSvc: FavoritesService) {}
 
@@ -32,7 +33,10 @@ export class VideoCardComponent {
     return this.item.canonicalUrl || '';
   }
 
-
+  onImgLoad(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.classList.add('loaded');
+  }
   /** Toggle favorite state in localStorage-backed service */
   onToggleFav() {
     this.favSvc.toggle(this.item.id);
