@@ -22,27 +22,11 @@
       tabindex="0"
       (keydown)="onKeyDown($event)"
     >
-
-<!--      @if (loading) {
-        @for (_ of skeletonItems; track _) {
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2 flex-shrink-0">
-              <ngx-skeleton-loader
-                count="1"
-                appearance="circle"
-                [theme]="{
-                  width: '100%',
-                  'border-radius': '0.5rem'
-                }"
-              ></ngx-skeleton-loader>
-            </div>
-        }
-      } @else {-->
         @for (item of items; track item.id) {
           <div class="col-6 col-sm-4 col-md-3 col-lg-2 flex-shrink-0">
             <app-video-card [item]="item"></app-video-card>
           </div>
         }
-<!--      }-->
     </div>
 
     <!-- right arrow only when you can scroll right -->

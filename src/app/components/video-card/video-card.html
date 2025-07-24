@@ -1,5 +1,6 @@
 <article class="video-card position-relative">
   <!-- Image -->
+  <a [href]=getVideoUrl() class="video-card-link">
   <div class="img-wrapper">
     <img
       class="fill-img rounded"
@@ -12,6 +13,7 @@
       loading="lazy"
     />
   </div>
+  </a>
 
   <button
     class="fav-btn"

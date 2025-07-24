@@ -28,6 +28,10 @@ export class VideoCardComponent {
   getImageUrl(): string {
     return this.item.verticalPhotos?.[0]?.photoUrlOriginal || '';
   }
+  getVideoUrl(): string {
+    return this.item.canonicalUrl || '';
+  }
+
 
   /** Toggle favorite state in localStorage-backed service */
   onToggleFav() {

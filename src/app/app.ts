@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DataService } from './services/data';
 import { HorizontalStripComponent } from './components/horizontal-strip/horizontal-strip';
 import {NgxSkeletonLoaderComponent} from 'ngx-skeleton-loader';
-
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,7 @@ import {NgxSkeletonLoaderComponent} from 'ngx-skeleton-loader';
     CommonModule,
     HorizontalStripComponent,
     NgxSkeletonLoaderComponent,
+    RouterModule
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
