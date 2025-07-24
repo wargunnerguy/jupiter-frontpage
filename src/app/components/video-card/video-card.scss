@@ -6,9 +6,10 @@
 }
 
 :host(:hover) {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 2;
+  animation: jiggle 0.3s ease-in-out;
+  transform: scale(0.96) ;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  z-index: 3;
 }
 
 .video-card-link {
@@ -77,4 +78,14 @@
       pointer-events: auto;
     }
   }
+}
+
+@keyframes jiggle {
+  0%   { transform: scale(1) rotate(0deg); }
+  12%   { transform: scale(0.98) rotate(0.15deg); }
+  25%  { transform: scale(0.96) rotate(0.4deg); }
+  50%  { transform: scale(0.96) rotate(0deg); }
+  62%  { transform: scale(0.96) rotate(-0.15deg); }
+  75%  { transform: scale(0.96) rotate(-0.4deg); }
+  100% { transform: scale(0.96) rotate(0deg); }
 }
