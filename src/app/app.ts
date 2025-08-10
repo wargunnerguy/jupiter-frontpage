@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataService } from './services/data';
-import { HorizontalStripComponent } from './components/horizontal-strip/horizontal-strip';
-import {NgxSkeletonLoaderComponent} from 'ngx-skeleton-loader';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -10,8 +8,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [
     CommonModule,
-    HorizontalStripComponent,
-    NgxSkeletonLoaderComponent,
     RouterModule
   ],
   templateUrl: './app.html',

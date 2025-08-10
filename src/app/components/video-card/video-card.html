@@ -10,7 +10,7 @@
       decoding="async"
       alt="{{ item.heading || item.title }}"
       fill
-      loading="lazy"
+      [attr.loading]="priority ? null : 'lazy'"
       (load)="onImgLoad($event)"
     />
   </div>

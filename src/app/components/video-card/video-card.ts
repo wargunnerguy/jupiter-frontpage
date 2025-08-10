@@ -14,6 +14,7 @@ export class VideoCardComponent {
   @Input() index = 0;
   @Input() priority = false;
   loaded = false;
+  @Input() loading!: boolean;
 
   constructor(public favSvc: FavoritesService) {}
 

@@ -19,12 +19,14 @@
 } @else {
   <div>
 
-    @for (strip of frontPageStrips; track strip.id; let i = $index) {
+    @for (strip of frontPageStrips; track strip.id || $index; let stripIndex = $index )
+    {
       <app-horizontal-strip
         [title]="strip.header"
         [headerUrl]="strip.headerUrl"
         [items]="strip.data"
         [loading]="loading"
+        [isFirstStrip]="stripIndex === 0"
       ></app-horizontal-strip>
     }
   </div>

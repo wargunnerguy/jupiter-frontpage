@@ -22,9 +22,13 @@
       tabindex="0"
       (keydown)="onKeyDown($event)"
     >
-        @for (item of items; track item.id) {
+      @for (item of items; track item.id; let i = $index) {
           <div class="col-6 col-sm-4 col-md-3 col-lg-2 flex-shrink-0">
-            <app-video-card [item]="item"></app-video-card>
+            <app-video-card
+              [item]="item"
+              [loading]="loading"
+              [priority]="isFirstStrip && i === 0"
+            ></app-video-card>
           </div>
         }
     </div>
