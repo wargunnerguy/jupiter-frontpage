@@ -1,3 +1,6 @@
+1. Kodutöö osa (avaleht) https://wargunnerguy.github.io/jupiter-frontpage
+2. Kodutöö osa (otsing): https://wargunnerguy.github.io/jupiter-frontpage/search
+
 ### Tehtud (Tööle kulunud aeg 2.5h)
 
 - ✅ **Uus leht/vaade otsingu jaoks**
