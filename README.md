@@ -1,3 +1,48 @@
+### Tehtud (Tööle kulunud aeg 2.5h)
+
+- ✅ **Uus leht/vaade otsingu jaoks**
+  - Loodud `/search` route.
+  - Loodud täielik otsinguvorm koos väljadega:
+    - Otsingufraas (`phrase`)
+    - Otsingu tüüp (`type`: all, photo, video, audio)
+    - Sorteerimisvalik (`sortOption`: accuracy, new, old, abc)
+    - Ajavahemik (`timeRange`: all, week, month, year)
+    - Tulemite arv lehel (`limit`)
+  - Vorm kinnitab otsingu kas nupuvajutuse või Enter-klahviga.
+
+- ✅ **Andmete pärimine API kaudu**
+  - Loodud `SearchService`, mis teeb POST-päringu aadressile `/api/v1/search`.
+  - Päringu bodys saadetakse ainult vajalikud `queryParams` väljad.
+  - Tulemus töödeldakse, et lisada vajadusel pildi URL.
+
+- ✅ **Tulemuste töötlemine ja kuvamine**
+  - Vastused grupeeritakse meediatüübi kaupa (`activeList.data`).
+  - Kuvatakse iga grupi tulemused kaardivaates (`card` komponendid Bootstrapiga).
+  - Lisatud lehekülje navigeerimise nupud (`Eelmine` / `Järgmine`).
+
+- ✅ **Piltide kuvamine ja töötlus**
+  - Loodud `buildCropUrl` utiliit, mis ehitab ERR image cropper teenuse URL-i.
+  - Pildi kuvamine töötab, kui API tagastab kehtiva failitee.
+  - Pilte laaditakse optimeeritult `NgOptimizedImage` abil (mõõtmete ja `priority` atribuudiga).
+
+---
+
+### Lõpetamata / osaliselt valmis
+
+- ❌ **Piltide kuvamine tulemuste puhul**
+
+- ❌ **Error handling ja tühjade olekute käsitlus**
+  - Hetkel puudub detailsem kasutajale suunatud teavitus olukorras, kus API ei tagasta tulemusi või tekib võrgutõrge.
+  - Puudub “No results” eridisain.
+
+- ❌ **Täiendavad QueryParams väljad**
+  - `timeRangeFrom`, `timeRangeTo`, `includeTranscription` ja `advancedParams` on jäetud staatilisteks või kasutamata, kuna neid ei peetud esmaseks prioriteediks.
+
+- ❌ **Visuaalne viimistlus**
+  - Otsingutulemuste kaardid on lihtsas Bootstrap stiilis, disaini pole detailselt kohandatud.
+  - Responsive disain töötab üldjoontes, aga ei ole igal ekraanil testitud.
+
+
 # JupiterFrontpage
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
