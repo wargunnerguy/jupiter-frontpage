@@ -17,6 +17,8 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/jupiter-frontpage",
+            "baseHref": "/jupiter-frontpage/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -90,6 +92,15 @@
             "styles": [
               "src/styles.scss"
             ]
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "outputPath": "dist/jupiter-frontpage",
+            "buildTarget": "test:build:production",
+            "baseHref": "/jupiter-frontpage/"
+
           }
         }
       }
