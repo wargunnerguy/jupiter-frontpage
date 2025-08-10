@@ -1,0 +1,16 @@
+{
+  "/api": {
+    "target": "https://arhiiv.err.ee",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/category-api": {
+    "target": "https://services.err.ee",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/category-api": ""
+    }
+  }
+}

@@ -66,7 +66,8 @@
               "buildTarget": "jupiter-frontpage:build:production"
             },
             "development": {
-              "buildTarget": "jupiter-frontpage:build:development"
+              "buildTarget": "jupiter-frontpage:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

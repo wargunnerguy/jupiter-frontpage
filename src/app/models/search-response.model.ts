@@ -14,4 +14,5 @@ export interface SearchItem {
   description?: string;
   date?: string | number;
   imageUrl?: string;
+  cropUrl?: string | null;
 }

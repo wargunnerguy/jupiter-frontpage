@@ -1,5 +1,5 @@
 import { Component, effect, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SearchService } from '../../services/search';
 import { QueryParams } from '../../models/query-params.model';
@@ -9,7 +9,7 @@ import { buildCropUrl } from '../../utils/image-cropper';
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NgOptimizedImage],
   templateUrl: './search.html',
   styleUrls: ['./search.scss'],
 })
